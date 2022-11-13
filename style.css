@@ -73,14 +73,20 @@ body {
 .pie-lime { stroke: var(--pie-lime); }
 
 .pie-chart {
-	width: 600px;
+	font-size: 1rem;
+	width: 24em;
 	background: rgb(201, 200, 200);
 	border-radius: 50%;
 	position: relative;
-	border: 1em solid rgb(25, 25, 23)	;
+	border: .85em solid rgb(25, 25, 23);
+	transform: rotate(20deg);
+	transition: transform 1s cubic-bezier(.52,1.79,.49,.75);
 }
 
-.pie-chart circle {
+.pie-chart #btn_spin {
+
+}
+.pie-chart g > circle {
 	fill: none;
 	stroke: inherit;
 	stroke-width: 32;
@@ -100,6 +106,19 @@ body {
 .pie-chart g.sev { transform: rotate( 240deg ); stroke: var(--pie-turquoise); }
 .pie-chart g.eig { transform: rotate( 280deg ); stroke: var(--pie-yellow-green); }
 .pie-chart g.nin { transform: rotate( 320deg ); stroke: var(--pie-brown); }
+
+#btn_spin {
+	display: block;
+	background: #444;
+	width: 4em;
+	height: 4em;
+	border-radius: 100%;
+}
+#btn_label {
+	fill: white;
+    transform: translate(-0.6em, 0.6em) rotate(-20deg);
+    transform-origin: 50% 50%;
+}
 
 @keyframes rotate {
 to {
