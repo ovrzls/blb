@@ -1,0 +1,102 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;500&family=Barlow+Semi+Condensed:wght@500&family=Libre+Baskerville&family=Poppins:wght@100;200;300;400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+    --white: #fefefe;
+    --body-color: #13262F;
+    --link: #CFD186;
+    --tile: #E3655B;
+    --freespace: #e31c37;
+    --background: #450920;
+}
+html, body {
+    margin:0;
+    background-color: var(--background);
+}
+.sronly { opacity: 0; }
+.text-center {
+    text-align: center;
+}
+img { max-width: 100%; height: auto; }
+// 8. Add additional custom code here
+h1, h2, h3 {
+    font-family: 'Libre Baskerville', sans-serif;
+    letter-spacing: -1.5px;
+}
+body { 
+    font-family: 'Poppins', sans-serif;
+    color:var(--white);
+    font-size: 16px;
+}
+#logo { max-width: 100%; width: 48px; }
+.board-content {
+    position: relative;
+    height: calc(100vh - 2rem);/* until I manage to make this a postion or header and body height */
+}
+.tile-grid {
+    height: 100%;
+    max-width: 100%;
+    aspect-ratio: 6/5;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    margin: auto;
+}
+.tile-grid .tile, .tile-grid .freespace {
+    display: flex;
+    background-color: var(--tile);
+    border-radius: .55rem;
+    align-items: center;
+    container-name: tile;
+    container-type: inline-size;
+    color: var(--white);
+}
+.tile-grid .tile.active {
+    background-color: var(--link);
+    color: var(--body-color);
+}
+.tile-grid p {
+    user-select: none;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    line-height: 1.25em;
+}
+
+.tile-grid .freespace {
+    background-color: var(--freespace);
+    height: 100%;
+    position: relative;
+}
+.freespace img {
+    width: 100%;
+    height: calc(100% + 16px);
+    object-fit: contain;
+    position: absolute;
+    top:0;
+}
+@container tile (width < 17ch) {
+    .tile-grid .tile p {
+        font-size: 12px;
+    }
+}
+@container tile (width < 12ch) {
+    .tile-grid .tile p {
+        font-size: 9px;
+    }
+}
+@media screen and (min-width:768px) {
+    #logo {
+        width: auto;
+        margin: 0 auto auto;
+    }
+    header {
+        margin:auto;
+        padding-left: 1rem;
+    }
+    .main {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 1rem;
+    }
+}
