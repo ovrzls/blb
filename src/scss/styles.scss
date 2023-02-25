@@ -1,59 +1,116 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;500&family=Barlow+Semi+Condensed:wght@500&family=Libre+Baskerville&family=Poppins:wght@100;200;300;400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;500&family=Barlow+Semi+Condensed:wght@500&family=Inter:wght@400;800&family=Libre+Baskerville&family=Poppins:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
 
+$link: 207, 209, 134;
 :root {
     --white: #fefefe;
-    --body-color: #13262F;
-    --link: #CFD186;
-    --tile: #E3655B;
+    --modal-color: #EE5007;
+    --link: #eceeb2;
+    --tile-active: #e31c37;
+    --tile: #eceeb2;
     --freespace: #e31c37;
-    --background: #450920;
+    --background: #006E7F;
+    --black: #001316;
 }
 html, body {
     margin:0;
     background-color: var(--background);
 }
+html {
+    position: relative;
+}
+a {
+    color: var(--link);
+}
 .sronly { opacity: 0; }
 .text-center {
     text-align: center;
 }
-img { max-width: 100%; height: auto; }
-// 8. Add additional custom code here
+img { 
+    max-width: 100%;
+    height: auto;
+}
+.wrapper {
+    padding: 1rem;
+    max-width: 920px;
+    margin: 0 auto;
+}
+header {
+    padding:1rem;
+}
+.site-header {
+    text-align: center;
+    line-height: 0;
+    margin-bottom: 1em;
+}
+.site-header img {
+    display: block;
+    margin: 0 auto;
+}
+section {
+    margin-top: 2rem;
+}
+.section-title {
+}
 h1, h2, h3 {
     font-family: 'Libre Baskerville', sans-serif;
     letter-spacing: -1.5px;
+    margin:0;
 }
 body { 
     font-family: 'Poppins', sans-serif;
     color:var(--white);
     font-size: 16px;
 }
-#logo { max-width: 100%; width: 48px; }
+#logo { max-width: 100%; width: 3.1rem; float:left; }
+.btn {
+    font-size: 1.4rem;
+    background-color: rgba(207, 209, 134, .1);
+    color: var(--link);
+    border: 1px var(--link) solid;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .5s;
+    padding: 0.45em 1em;
+    border-radius: 0.45em;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin: 0.4rem auto;
+    font-weight: 800;
+}
+.btn:hover {
+    background-color: var(--link);
+    color: var(--background);
+}
 .board-content {
     position: relative;
-    height: calc(100vh - 2rem);/* until I manage to make this a postion or header and body height */
 }
 .tile-grid {
     height: 100%;
     max-width: 100%;
-    aspect-ratio: 6/5;
+    aspect-ratio: 4/5;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
+    grid-gap: 4px;
     margin: auto;
 }
 .tile-grid .tile, .tile-grid .freespace {
     display: flex;
     background-color: var(--tile);
-    border-radius: .55rem;
+    border-radius: .25rem;
     align-items: center;
     container-name: tile;
     container-type: inline-size;
-    color: var(--white);
+    color: var(--black);
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
+    transition:
+        background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) .2s,
+        color ease-out .3s,
+        box-shadow ease-out .5s;
 }
 .tile-grid .tile.active {
-    background-color: var(--link);
-    color: var(--body-color);
+    background-color: var(--tile-active);
+    color: var(--white);
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%);
 }
 .tile-grid p {
     user-select: none;
@@ -75,6 +132,36 @@ body {
     position: absolute;
     top:0;
 }
+.confetti{
+    position: fixed;
+    height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    user-select: none;
+    top: 0;
+ }
+ #congratulations {
+    display: flex;
+    position: fixed;
+    bottom: -100%;
+    z-index: 10000;
+    width: 100%;
+    align-content: center;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+ }
+ #congratulations #modal {
+    max-width: 420px;
+    background: var(--modal-color);
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+    border-radius: .75rem;
+    box-shadow: 2px 2px 12px 8px #fff;
+ }
+ .bingo #congratulations {
+    bottom: 20px;
+ }
 @container tile (width < 17ch) {
     .tile-grid .tile p {
         font-size: 12px;
@@ -82,7 +169,7 @@ body {
 }
 @container tile (width < 12ch) {
     .tile-grid .tile p {
-        font-size: 9px;
+        font-size: 11px;
     }
 }
 @media screen and (min-width:768px) {
@@ -98,5 +185,31 @@ body {
         display: flex;
         flex-direction: row-reverse;
         margin: 1rem;
+    }
+    .row-lg {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 1rem;
+    }
+    .board-content {
+        height: calc(100vh - 2rem);/* until I manage to make this a postion or header and body height */
+    }
+    .tile-grid {
+        aspect-ratio: 6/5;
+        grid-gap: 10px;
+    }
+    .tile-grid .tile, .tile-grid .freespace {
+        border-radius: .45rem;
+    }
+    #congratulations {
+        top: -100%;
+        bottom: auto;
+     }
+     #modal {
+        width: 100%;
+     }
+    .bingo #congratulations {
+        top: 33%;
+        bottom: auto;
     }
 }

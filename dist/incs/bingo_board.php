@@ -7,7 +7,7 @@ for( $y=0; $y<5; $y++ ){
         <?php
         if($x==2 && $y==2) {
             ?>
-            <img src="/images/betterlifebingo.png" />
+            <img src="/images/betterlifebingo.png" alt="Better Life Bingo, Free Space" />
             <?php
         } else {
             echo "<p>".$bingoArr[$index]."</p>";

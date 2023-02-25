@@ -1,14 +1,16 @@
 <?php include("./incs/head.php"); ?>
 <div class="main">
     <header>
-        <h1>Wellness Bingo</h1>
-        <p>Reflect on your day and see if you had a bingo day. Share your board (win or loose) with your partner, friend, or parent so they can learn about your day.</p>
+        <h1>Family Bingo</h1>
+        <h2>What made you laugh? What made you sad or mad?</h2>
+        <p>This is a great way to look back on your day. Think about those little positive decisions you made and talk with someone you love about how you felt today.</p>
+        
     </header>
     <div class="board-content">
         <div class="tile-grid" id="gameboard">
         <?php
         include("./incs/bingo_lists.php");
-        $bingoArr = $bingolists["wellness"];
+        $bingoArr = $bingolists["standard"];
         shuffle($bingoArr);
         if( count($bingoArr) >= 24 ):
             include("incs/bingo_board.php");
