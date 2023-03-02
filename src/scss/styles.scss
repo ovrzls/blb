@@ -93,32 +93,32 @@ body {
     grid-gap: 4px;
     margin: auto;
 }
-.tile-grid .tile, .tile-grid .freespace {
-    display: flex;
-    background-color: var(--tile);
-    border-radius: .25rem;
-    align-items: center;
-    container-name: tile;
-    container-type: inline-size;
-    color: var(--black);
-    box-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
-    transition:
-        background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) .2s,
-        color ease-out .3s,
-        box-shadow ease-out .5s;
-}
-.tile-grid .tile.active {
-    background-color: var(--tile-active);
-    color: var(--white);
-    box-shadow: 0 0 0 rgb(0 0 0 / 0%);
-}
-.tile-grid p {
-    user-select: none;
-    text-align: center;
-    width: 95%;
-    margin: auto;
-    line-height: 1.25em;
-}
+// .tile-grid .tile, .tile-grid .freespace {
+//     display: flex;
+//     background-color: var(--tile);
+//     border-radius: .25rem;
+//     align-items: center;
+//     container-name: tile;
+//     container-type: inline-size;
+//     color: var(--black);
+//     box-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
+//     transition:
+//         background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) .2s,
+//         color ease-out .3s,
+//         box-shadow ease-out .5s;
+// }
+// .tile-grid .tile.active {
+//     background-color: var(--tile-active);
+//     color: var(--white);
+//     box-shadow: 0 0 0 rgb(0 0 0 / 0%);
+// }
+// .tile-grid p {
+//     user-select: none;
+//     text-align: center;
+//     width: 95%;
+//     margin: auto;
+//     line-height: 1.25em;
+// }
 
 .tile-grid .freespace {
     background-color: var(--freespace);
@@ -159,6 +159,12 @@ body {
     border-radius: .75rem;
     box-shadow: 2px 2px 12px 8px #fff;
  }
+ #modal .fb_iframe_widget {
+    display: block;
+    background: var(--tile);
+    padding: 1em 0.4em 0.6em;
+
+}
  .bingo #congratulations {
     bottom: 20px;
  }
@@ -171,6 +177,42 @@ body {
     .tile-grid .tile p {
         font-size: 11px;
     }
+}
+input {
+    position: absolute;
+    left: -9em;
+}
+label {
+    display: flex;
+    height: 100%;
+    background: var(--tile);
+    border-radius: .25rem;
+    align-items: center;
+    container-name: tile;
+    container-type: inline-size;
+    color: var(--black);
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
+    transition:
+        background-color cubic-bezier(0.6, -0.28, 0.735, 0.045) .2s,
+        color ease-out .3s,
+        box-shadow ease-out .5s;
+}
+label p {
+    user-select: none;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    line-height: 1.25em;
+}
+input:checked ~ label {
+    background-color: var(--tile-active);
+    color: var(--white);
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%);
+}
+input:focus ~ label {
+    box-shadow: 
+        0 0 0 rgb(0 0 0 / 0%),
+        inset 0 0 3px 4px var(--modal-color);
 }
 @media screen and (min-width:768px) {
     #logo {

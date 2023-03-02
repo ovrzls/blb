@@ -11,7 +11,7 @@
         $bingoArr = $bingolists["wellness"];
         shuffle($bingoArr);
         if( count($bingoArr) >= 24 ):
-            include("incs/bingo_board.php");
+            include("incs/bingo_board_checkboxes.php");
         else:
             echo "<h2>There doesn't appear to be enough tiles to show please let me know.</h2>";        
         endif;

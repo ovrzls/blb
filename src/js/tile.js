@@ -1,14 +1,18 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-	const tiles = document.getElementsByClassName('tile');
+	// const tiles = document.getElementsByClassName('tile');
+    const tiles = document.querySelectorAll('input[type="checkbox"]');
 	let tileMap = 	[[0,0,0,0,0],
 					 [0,0,0,0,0],
 					 [0,0,1,0,0],
 					 [0,0,0,0,0],
 					 [0,0,0,0,0]];
 
-	for (let tile of tiles) {
-		tile.addEventListener( 'click', clickHandler, false )
-	}
+	// for (let tile of tiles) {
+	// 	tile.addEventListener( 'click', clickHandler, false )
+	// }
+    for (let tile of tiles){
+        tile.addEventListener('change',clickHandler);
+    }
 
 	function clickHandler(e) {
 		const indexX = e.currentTarget.getAttribute('data-x');

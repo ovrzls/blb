@@ -31,7 +31,7 @@
 </head>
 <body id="bingo">
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0&appId=1140252116028361&autoLogAppEvents=1" nonce="VOHEhkXY"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0&appId=1140252116028361&autoLogAppEvents=1" nonce="Vmfc4XQW"></script>
 <canvas class="confetti" id="canvas"></canvas>
 <div id="congratulations" role="modal">
    <div id="modal">
