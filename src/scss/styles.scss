@@ -90,6 +90,7 @@ body {
     aspect-ratio: 4/5;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-gap: 4px;
     margin: auto;
 }
@@ -151,6 +152,7 @@ body {
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
  }
  #congratulations #modal {
+    width: calc(100vw - 5rem);
     max-width: 420px;
     background: var(--modal-color);
     margin: auto;
